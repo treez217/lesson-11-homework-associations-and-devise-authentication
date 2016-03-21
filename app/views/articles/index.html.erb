@@ -1,0 +1,14 @@
+<h1> Techcrunch </h1>
+
+<%=link_to 'Create New Article', new_article_path%>
+
+<% @articles.each do |article| %>
+
+  <table>
+    <td><%=link_to 'Delete', article_path(article), method: :delete, data: {conirm: 'Yes No'}%></td>
+    <td><%=link_to 'Edit', edit_article_path(article) %></td>
+    <td><%= article.author.try(:first_name) %></td>
+    <td><%=link_to article.title, article_path(article)%> </td>
+  </table>
+
+<% end %>

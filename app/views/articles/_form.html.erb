@@ -1,0 +1,34 @@
+<%= link_to "Back to Article List", articles_path %>
+
+<%= form_for @article do |a| %>
+
+<% if @article.errors.any? %>
+  <% @article.errors.full_messages.each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+<% end %>
+
+<p>
+  <%= a.label :title %><br>
+  <%= a.text_field :title %>  
+</p>
+
+<p>
+  <%= a.label :body %><br>
+  <%= a.text_field :body %>
+</p>
+
+<p>
+  <%= a.label :author %><br>
+  <%= collection_select(:article, :author_id, Author.all, :id, :first_name, include_blank: true) %>
+</p>
+
+<p>
+  <%=a.label :tag, "Tags" %><br>
+  <%= collection_check_boxes(:article, :tag_ids, Tag.all, :id, :name) %>
+</p>
+
+<%= a.submit %>
+
+<% end %>
+

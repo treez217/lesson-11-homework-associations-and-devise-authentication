@@ -1,0 +1,15 @@
+<h1> Author List </h1>
+
+<%=link_to 'Create New Author', new_author_path%>
+
+<% @authors.each do |author| %>
+
+  <table>
+    <td><%=link_to 'Delete', author_path(author), method: :delete, data: {conirm: 'Yes No'}%></td>
+    <td><%=link_to 'Edit', edit_author_path(author) %></td>
+    <td><%=link_to author.first_name, author_path(author)%> </td>
+    <td><%=link_to author.last_name, author_path(author)%> </td>
+
+  </table>
+
+<% end %>

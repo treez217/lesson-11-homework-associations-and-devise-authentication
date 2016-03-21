@@ -1,0 +1,18 @@
+<%= link_to "Back to Tag List", tags_path %>
+
+<%= form_for @tag do |t| %>
+
+<% if @tag.errors.any? %>
+  <% @tag.errors.full_messages.each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+<% end %>
+
+<p>
+  <%= t.label :name %><br>
+  <%= t.text_field :name %>  
+</p>
+
+<%= t.submit %>
+
+<% end %>

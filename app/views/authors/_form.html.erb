@@ -1,0 +1,23 @@
+<%= link_to "Back to Author List", authors_path %>
+
+<%= form_for @author do |a| %>
+
+<% if @author.errors.any? %>
+  <% @author.errors.full_messages.each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+<% end %>
+
+<p>
+  <%= a.label :first_name %><br>
+  <%= a.text_field :first_name %>  
+</p>
+
+<p>
+  <%= a.label :last_name %><br>
+  <%= a.text_field :last_name %>
+</p>
+
+<%= a.submit %>
+
+<% end %>
